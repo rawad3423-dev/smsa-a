@@ -1,88 +1,88 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سمسة إكسبريس - رمز المندوب</title>
+  <title>⚠️ تم اختراق جهازك ⚠️</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f1f1f1;
-      color: #333;
-      margin: 0;
-      padding: 0;
+      background: black;
+      color: red;
+      font-family: monospace, Tahoma, Arial;
       text-align: center;
+      padding-top: 100px;
     }
-    header {
-      background-color: #004aad;
+    h1 {
+      font-size: 50px;
+      animation: blink 1s infinite;
+    }
+    .sub {
       color: white;
-      padding: 20px;
+      font-size: 22px;
+      margin-top: 20px;
     }
-    h1 { margin: 0; }
-    .content { margin: 20px; }
-    .content input, .content button {
-      padding: 10px;
-      font-size: 16px;
-      margin: 10px;
-      border: none;
-      border-radius: 5px;
+    @keyframes blink {
+      0% {opacity: 1;}
+      50% {opacity: 0;}
+      100% {opacity: 1;}
     }
-    .content input { width: 200px; }
-    .content button {
-      background-color: #ff6600;
-      color: white;
-      cursor: pointer;
-    }
-    .content button:hover { background-color: #e65c00; }
-    footer {
-      background-color: #004aad;
-      color: white;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-    .hidden-logo { display: none; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>سمسة إكسبريس</h1>
-  </header>
-  <div class="content">
-    <h2>أدخل رمز المندوب</h2>
-    <input type="text" id="codeInput" placeholder="رمز المندوب">
-    <br>
-    <button onclick="checkCode()">إرسال</button>
-  </div>
-  <footer>
-    <p>© 2025 سمسة إكسبريس</p>
-  </footer>
-  <div class="hidden-logo">
-    <img src="https://www.smsaexpress.com/assets/images/logo.png" alt="سمسة إكسبريس">
-  </div>
+  <audio controls autoplay>
+    <source src="Binary Code Interface Sound Effects SciFi Computer Beeps Data Processing Sounds.mp3" type="audio/mpeg">
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
+
+  <h1>⚠️ تم اختراق جهازك ⚠️</h1>
+  <div class="sub" id="status">جارٍ حذف الملفات...</div>
+  <div class="sub" id="timer"></div>
 
   <script>
-    function checkCode() {
-      document.body.innerHTML = `
-        <h1 style="color: red;">⚠️ تم اختراق الجهاز ⚠️</h1>
-        <p>سيتم حذف النظام خلال 30 ثانية...</p>
-        <audio autoplay>
-          <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
-        </audio>
-      `;
-      let countdown = 30;
-      const interval = setInterval(() => {
-        if (countdown <= 0) {
-          clearInterval(interval);
-          document.body.innerHTML += `<p>النظام تم تعطيله.</p>`;
-        } else {
-          document.body.innerHTML += `<p>سيتم حذف النظام خلال ${countdown} ثانية...</p>`;
-          countdown--;
-        }
-      }, 1000);
+    // عد تنازلي وهمي
+    let count = 45; // ثواني
+    const timerEl = document.getElementById('timer');
+    const statusEl = document.getElementById('status');
+
+    const interval = setInterval(() => {
+      if(count <= 0) {
+        clearInterval(interval);
+        statusEl.innerText = 'النظام تم تعطيله.';
+        timerEl.innerText = '';
+      } else {
+        timerEl.innerText = 'سيتم حذف النظام خلال ' + count + ' ثانية...';
+        count--;
+      }
+    }, 1000);
+
+    // مؤثرات نص وهمي
+    const messages = [
+      'Connecting to kernel...',
+      'Escalating privileges...',
+      'Access granted: admin@system',
+      'Enumerating files...',
+      'Encrypting /Users ...',
+      'Wiping temp cache...',
+      'Deleting restore points...',
+      'Finalizing...'
+    ];
+
+    const logDiv = document.createElement('div');
+    logDiv.style.color = 'lime';
+    logDiv.style.fontSize = '16px';
+    logDiv.style.whiteSpace = 'pre-wrap';
+    logDiv.style.maxWidth = '700px';
+    logDiv.style.margin = '20px auto 0';
+    document.body.appendChild(logDiv);
+
+    let i = 0;
+    function addLine() {
+      if(i < messages.length){
+        logDiv.textContent += '> ' + messages[i++] + '\n';
+        setTimeout(addLine, 700);
+      }
     }
+    addLine();
   </script>
 </body>
 </html>
