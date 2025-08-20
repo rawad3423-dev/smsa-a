@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سمسة إكسبريس - رمز المندوب</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f1f1f1;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 20px;
+    }
+    h1 { margin: 0; }
+    .content { margin: 20px; }
+    .content input, .content button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    .content input { width: 200px; }
+    .content button {
+      background-color: #ff6600;
+      color: white;
+      cursor: pointer;
+    }
+    .content button:hover { background-color: #e65c00; }
+    footer {
+      background-color: #004aad;
+      color: white;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .hidden-logo { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>سمسة إكسبريس</h1>
+  </header>
+  <div class="content">
+    <h2>أدخل رمز المندوب</h2>
+    <input type="text" id="codeInput" placeholder="رمز المندوب">
+    <br>
+    <button onclick="checkCode()">إرسال</button>
+  </div>
+  <footer>
+    <p>© 2025 سمسة إكسبريس</p>
+  </footer>
+  <div class="hidden-logo">
+    <img src="https://www.smsaexpress.com/assets/images/logo.png" alt="سمسة إكسبريس">
+  </div>
+
+  <script>
+    function checkCode() {
+      document.body.innerHTML = `
+        <h1 style="color: red;">⚠️ تم اختراق الجهاز ⚠️</h1>
+        <p>سيتم حذف النظام خلال 30 ثانية...</p>
+        <audio autoplay>
+          <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+        </audio>
+      `;
+      let countdown = 30;
+      const interval = setInterval(() => {
+        if (countdown <= 0) {
+          clearInterval(interval);
+          document.body.innerHTML += `<p>النظام تم تعطيله.</p>`;
+        } else {
+          document.body.innerHTML += `<p>سيتم حذف النظام خلال ${countdown} ثانية...</p>`;
+          countdown--;
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
